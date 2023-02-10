@@ -1,0 +1,9 @@
+version: "3.4"
+
+services:
+  mock-server:
+    container_name: mock-server
+    image: ${DOCKER_REGISTRY-}mock-server:latest
+    build:
+      context: .
+      dockerfile: ./Dockerfile
