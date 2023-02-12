@@ -16,6 +16,7 @@ public class SaveEndpointRequest {
     private RequestMethod requestMethod;
     @NotNull
     private HttpStatus responseStatusCode;
+    private Object responseHeaders;
     private Object responseBody;
 
 }

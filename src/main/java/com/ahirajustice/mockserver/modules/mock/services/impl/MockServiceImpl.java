@@ -39,6 +39,7 @@ public class MockServiceImpl implements MockService {
                 .url(request.getUrl())
                 .requestMethod(request.getRequestMethod())
                 .responseStatusCode(request.getResponseStatusCode())
+                .responseHeaders(ObjectMapperUtils.serialize(objectMapper, request.getResponseHeaders()))
                 .responseBody(ObjectMapperUtils.serialize(objectMapper, request.getResponseBody()))
                 .build();
     }
@@ -63,7 +64,7 @@ public class MockServiceImpl implements MockService {
             throw new NotFoundException("Mock Server Error -> Resource not found");
         }
 
-        return new ResponseEntity<>(mock.getResponseBody(), mock.getResponseStatusCode());
+        return new ResponseEntity<>(mock.getResponseBody(), mock.getResponseHeaders(), mock.getResponseStatusCode());
     }
 
 }

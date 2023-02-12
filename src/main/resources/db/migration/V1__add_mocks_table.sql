@@ -10,6 +10,7 @@ CREATE TABLE mocks
     url VARCHAR(511) NOT NULL,
     request_method VARCHAR(31) NOT NULL,
     response_status_code VARCHAR(31) NOT NULL,
+    response_headers TEXT,
     response_body TEXT,
     CONSTRAINT pk_mocks PRIMARY KEY (id),
     CONSTRAINT uc_mocks_url_request_method UNIQUE (url, request_method)
