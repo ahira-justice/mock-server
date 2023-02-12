@@ -36,13 +36,6 @@ public class MockController {
         mockService.saveEndpoint(request);
     }
 
-    @Operation(summary = "Handle Request")
-    @ApiResponses(
-            value = {
-                    @ApiResponse(responseCode = "200", content = { @Content(mediaType = "application/json") }),
-                    @ApiResponse(responseCode = "404", content = { @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class)) })
-            }
-    )
     @RequestMapping(
             path = "/**",
             method = { RequestMethod.OPTIONS, RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.PATCH }
